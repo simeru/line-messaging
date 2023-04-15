@@ -1,16 +1,12 @@
 {
-    "version": 2,
     "functions": {
-        "api/**/*.py": {
-            "runtime": "python3.9"
+        "api/main.py": {
+            "memory": 1024,
+            "maxDuration": 10
         }
     },
     "rewrites": [{
         "source": "/(.*)",
-        "destination": "/api/$1"
-    }],
-    "env": {
-        "LINE_CHANNEL_ACCESS_TOKEN": "@line_channel_access_token",
-        "LINE_CHANNEL_SECRET": "@line_channel_secret"
-    }
+        "destination": "api/main.py"
+    }]
 }
