@@ -1,12 +1,13 @@
 {
     "version": 2,
-    "builds": [{
-        "src": "./index.py",
-        "use": "@vercel/python"
-    }],
-    "routes": [{
-        "src": "/(.*)",
-        "dest": "/"
+    "functions": {
+        "api/**/*.py": {
+            "runtime": "python3.9"
+        }
+    },
+    "rewrites": [{
+        "source": "/(.*)",
+        "destination": "/api/$1"
     }],
     "env": {
         "LINE_CHANNEL_ACCESS_TOKEN": "@line_channel_access_token",
